@@ -5,7 +5,7 @@ A simple plugin to allow players to vote and claim rewards for their favourite s
 
 ## Configuration
 
-There's only two server vars needed to set up this resource in server.lua file.
+There's only two server vars needed to set up this resource in `server/server.lua` file.
 
 trackyServerId - The ID of your server on [TrackyServer](https://www.trackyserver.com/). This is must be a number.
 
