@@ -7,9 +7,9 @@ A simple plugin to allow players to vote and claim rewards for their favourite s
 
 There's only two server vars needed to set up this resource in `server/server.lua` file.
 
-trackyServerId - The ID of your server on [TrackyServer](https://www.trackyserver.com/). This is must be a number.
+`trackyServerId` - The ID of your server on [TrackyServer](https://www.trackyserver.com/). This is must be a number.
 
-trackyServerKey - The key for the server on [TrackyServer](https://www.trackyserver.com/).
+`trackyServerKey` - The key for the server on [TrackyServer](https://www.trackyserver.com/).
 
 After you have set the vars in the CFG file, you can continue to modify the `config.lua` file to run commands when players vote for your server.
 
