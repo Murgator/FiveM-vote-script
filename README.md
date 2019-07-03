@@ -44,6 +44,6 @@ Note: Commands **must** be executable by the console. Otherwise, you will get er
 
 ## Chat commands
 
-/vote - To display the server's voting link.
+`/vote` - To display the server's voting link.
 
-/checkvote - Type this command after voting for the server to receive your reward.
+`/checkvote` - Type this command after voting for the server to receive your reward.
