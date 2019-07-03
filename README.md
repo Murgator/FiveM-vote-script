@@ -42,7 +42,7 @@ Config.Rewards = {
 
 Note: Commands **must** be executable by the console. Otherwise, you will get errors.
 
-## Commands
+## Chat commands
 
 /vote - To display the server's voting link.
 
