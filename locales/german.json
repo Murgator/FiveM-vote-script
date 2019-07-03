@@ -1,0 +1,9 @@
+{
+    "steam_not_found" : "Steam wurde nicht gefunden, Sie können keine Belohnungen beanspruchen. Bitte starten Sie Steam, bevor Sie sich dem Server anschließen, um Ihre Stimme zu erhalten.",
+    "vote" : "Bitte stimme bei ~y~~a~ ab",
+    "vote_help" : "Holen Sie sich den Abstimmungslink für diesen Server",
+    "checkvote_help" : "Erhalten Sie eine Belohnung für die Abstimmung für diesen Server. Steam muss ausgeführt werden",
+    "vote_not_found" : "Sie haben noch nicht abgestimmt. Gehe zu ~y~~a~~s~, um abzustimmen.",
+    "vote_already_claimed" : "Du hast deine Belohnung bereits beansprucht.",
+    "vote_claimed" : "Herzliche Glückwünsche. Sie haben Ihre Belohnung für die heutige Abstimmung beansprucht."
+}
