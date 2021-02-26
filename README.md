@@ -47,3 +47,9 @@ Note: Commands **must** be executable by the console. Otherwise, you will get er
 `/vote` - To display the server's voting link.
 
 `/checkvote` - Type this command after voting for the server to receive your reward.
+
+## Original repository
+
+Thanks to TGRHavoc for developing this script for FiveM and Trackyserver.
+
+https://github.com/TGRHavoc/fivem-serverVote
