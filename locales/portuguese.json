@@ -1,9 +1,0 @@
-{
-    "steam_not_found" : "O Steam não foi encontrado, você não pode reivindicar qualquer recompensa. Por favor, inicie o Steam antes de entrar no servidor para reivindicar seu voto.",
-    "vote" : "Por favor vote em ~y~~a~",
-    "vote_help" : "Obtenha o link de votação para este servidor",
-    "checkvote_help" : "Receba uma recompensa por votar neste servidor. O Steam precisará estar em execução",
-    "vote_not_found" : "Você ainda não votou. Vá para ~y~~a~~s~ para votar.",
-    "vote_already_claimed" : "Você já reivindicou sua recompensa.",
-    "vote_claimed" : "Parabéns. Você reivindicou sua recompensa pela votação de hoje."
-}
