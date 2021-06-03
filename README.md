@@ -59,8 +59,9 @@ Commands **must** be executable by the console. Otherwise, you will get errors.
 
 You can use `t4s_addmoney` and `t4s_announce` and other commands by using this script:
 
-[esx_tip4serv_commands](https://github.com/Murgator/esx_tip4serv_commands)
-[esx2_tip4serv_commands](https://github.com/Murgator/esx2_tip4serv_commands)
+[Custom commands for ESX](https://github.com/Murgator/esx-fivem-commands)
+
+[Custom commands for ESX 2](https://github.com/Murgator/esx2-fivem-commands)
 
 ### Chat commands
 
