@@ -69,7 +69,7 @@ You can use `t4s_addmoney` and `t4s_announce` and other commands by using this s
 
 `/checkvote` - Type this command after voting for the server to receive your reward.
 
-## Original repository
+#### Original repository
 
 Thanks to TGRHavoc for developing this script for FiveM and Trackyserver.
 
