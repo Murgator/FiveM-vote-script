@@ -1,0 +1,9 @@
+{
+    "steam_not_found" : "Steam/Discord has not been found, you cannot claim any rewards. Please start Steam/Discord before joining the server to claim your vote.",
+    "vote" : "Please vote at ~y~~a~",
+    "vote_help" : "Get the vote link for this server",
+    "checkvote_help" : "Get a reward for voting for this server. Steam/Discord will need to be running",
+    "vote_not_found" : "You have not yet voted. Go to ~y~~a~~s~ to vote.",
+    "vote_already_claimed" : "You have already claimed your reward.",
+    "vote_claimed" : "Congratulations. You have claimed your reward for today's vote."
+}

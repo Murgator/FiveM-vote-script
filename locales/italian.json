@@ -1,0 +1,9 @@
+{
+    "steam_not_found" : "Steam/Discord non è stato trovato, non puoi rivendicare alcun premio. Per favore avvia Steam/Discord prima di unirti al server per richiedere il tuo voto.",
+    "vote" : "Si prega di votare ~y~~a~",
+    "vote_help" : "Ottieni il link per votare per questo server",
+    "checkvote_help" : "Ottieni una ricompensa per aver votato per questo server. Steam/Discord dovrà essere in esecuzione",
+    "vote_not_found" : "Non hai ancora votato. Vai a ~y~~a~~s~ per votare.",
+    "vote_already_claimed" : "Hai già reclamato la tua ricompensa.",
+    "vote_claimed" : "Complimenti. Hai reclamato la tua ricompensa per il voto di oggi."
+}

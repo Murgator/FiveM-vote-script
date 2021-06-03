@@ -1,0 +1,9 @@
+{
+    "steam_not_found" : "Steam/Discord nie został znaleziony, nie możesz odbierać żadnych nagród. Uruchom Steam/Discord przed dołączeniem do serwera, aby odebrać swój głos.",
+    "vote" : "Głosuj na ~y~~a~",
+    "vote_help" : "Uzyskaj link głosowania dla tego serwera",
+    "checkvote_help" : "Zdobądź nagrodę za głosowanie na ten serwer. Steam/Discord będzie musiał działać",
+    "vote_not_found" : "Nie głosowałeś jeszcze. Przejdź do ~y~~a~~s~, aby zagłosować.",
+    "vote_already_claimed" : "Otrzymałeś już swoją nagrodę.",
+    "vote_claimed" : "Gratulacje. Otrzymałeś swoją nagrodę za dzisiejsze głosowanie."
+}
