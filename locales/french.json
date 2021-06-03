@@ -1,9 +1,0 @@
-{
-    "steam_not_found" : "Steam est introuvable, vous ne pouvez pas recevoir votre récompense. Veuillez démarrer Steam avant de rejoindre le serveur.",
-    "vote" : "Veuillez voter sur ~y~~a~",
-    "vote_help" : "Voir le lien de vote du serveur",
-    "checkvote_help" : "Votez pour le serveur et gagnez une récompense. Steam devra être en cours d'exécution",
-    "vote_not_found" : "Vous n'avez pas encore voté. Allez sur ~y~~a~~s~ puis voter.",
-    "vote_already_claimed" : "Vous avez déjà réclamé votre récompense.",
-    "vote_claimed" : "Toutes nos félicitations. Vous venez de réclamer votre récompense pour aujourd'hui."
-}
