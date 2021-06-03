@@ -1,8 +1,8 @@
-## FiveM vote script for Trackyserver.com
+## FiveM vote script for Trackyserver.com (ESX1 & 2)
 
 A simple plugin to allow players to vote and claim rewards for their favourite servers.
 
-#### Prevents abusive votes (This only works if you are using ESX2)
+#### Prevents abusive votes (This point only works if you are using ESX2)
 
 When a player requests their reward with /checkvote, their ESX ID is sent to Trackyserver.com. It is the database identifier (gta license) which is used to check if the player has already vote and received his reward.
 	
