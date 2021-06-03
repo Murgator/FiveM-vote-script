@@ -1,9 +1,0 @@
-{
-    "steam_not_found" : "蒸汽尚未找到，你不能要求任何奖励。 在加入服务器之前请先启动Steam以声明您的投票。",
-    "vote" : "请在~y~a~~投票",
-    "vote_help" : "获取此服务器的投票链接",
-    "checkvote_help" : "获得对此服务器进行投票的回报。 蒸汽需要运行",
-    "vote_not_found" : "你还没有投票。 去~y~~a~s~去投票。",
-    "vote_already_claimed" : "你已经获得了你的奖励。",
-    "vote_claimed" : "恭喜。 你已经为今天的投票声明了你的奖励。"
-}
