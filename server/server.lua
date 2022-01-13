@@ -4,12 +4,6 @@ local endpoints = {
     ["claim"] = "https://api.trackyserver.com/vote/?action=claim&key=%s&"..Config.identifier.."=%s&customid=%s"
 }
 
--- Check for ESX and MySQL
-ESX = nil
-if (GetConvar('mysql_connection_string', 'Empty') ~= "Empty") then
-    TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
-end
-
 -- Load current player vote count from file
 local voteCache = LoadResourceFile(GetCurrentResourceName(), "votes.json")
 if (not voteCache) then
@@ -19,10 +13,10 @@ else
 end
 
 -- If user doesn't have the convars set. Tell them
-if Config.trackyServerId == -1 then
+if Config.trackyServerId == "" then
     print("Please set Config.trackyServerId to your server ID from https://trackyserver.com in config.lua file")
 end
-if Config.trackyServerKey == "nil" then
+if Config.trackyServerKey == "" then
     print("Please set Config.trackyServerKey to your server key from https://trackyserver.com in config.lua file")
 end
 if Config.identifier ~= "discordid" and Config.identifier ~= "steamid" then
@@ -39,16 +33,9 @@ end, false)
 
 RegisterCommand("checkvote", function(src, args, raw)
     local source = src
-    local Orig_Identifier, player_local_identifier, player_database_identifier
-    -- Get xplayerid (database identifier)
-    if ESX then
-        local xPlayer = ESX.GetPlayerFromId(source)
-        if xPlayer then
-            player_database_identifier = xPlayer.identifier
-        end
-    end
-    -- Get player identifiers   
-    for k,v in pairs(GetPlayerIdentifiers(source)) do       
+    local Orig_Identifier, player_local_identifier, player_licence
+    -- Get player identifiers 
+    for k,v in pairs(GetPlayerIdentifiers(source)) do   
         if Config.identifier == "steamid" then
             if (string.starts(v, "steam:")) then
                 player_local_identifier = tonumber(string.sub(v, 7), 16)
@@ -59,7 +46,12 @@ RegisterCommand("checkvote", function(src, args, raw)
                 player_local_identifier = string.gsub(v, "discord:", "")
                 Orig_Identifier = player_local_identifier
             end
-        end     
+		end
+		-- Get player licence
+		if (string.starts(v, "license:")) or (string.starts(v, "licence:")) then
+			player_licence = string.gsub(v, "licence:", "")
+			player_licence = string.gsub(v, "license:", "")
+		end
     end
     
     if (player_local_identifier == nil) then
@@ -67,7 +59,7 @@ RegisterCommand("checkvote", function(src, args, raw)
         return
     end
 
-    local statusUrl = string.format(endpoints["status"], Config.trackyServerKey, player_local_identifier, player_database_identifier)
+    local statusUrl = string.format(endpoints["status"], Config.trackyServerKey, player_local_identifier, player_licence)
     
     PerformHttpRequest(statusUrl, function(statusCode, responseText, _)
         if (statusCode ~= 200) then
@@ -80,7 +72,7 @@ RegisterCommand("checkvote", function(src, args, raw)
         elseif (responseText == "1") then
             -- Voted, not claimed
             -- Claim it
-            PerformHttpRequest(string.format(endpoints["claim"], Config.trackyServerKey, player_local_identifier, player_database_identifier), function(statusCode, responseText, _)
+            PerformHttpRequest(string.format(endpoints["claim"], Config.trackyServerKey, player_local_identifier, player_licence), function(statusCode, responseText, _)
                 if (statusCode ~= 200) then
                     print("Error claiming vote")
                     return
@@ -90,7 +82,7 @@ RegisterCommand("checkvote", function(src, args, raw)
                     TriggerClientEvent("serverVote:showSubtitle", source, "vote_not_found", string.format(endpoints["vote"], Config.trackyServerId))
                 elseif (responseText == "1") then
                     -- Just claimed it... Yey time for a reward
-                    claimedVote(source, Orig_Identifier, player_database_identifier)
+                    claimedVote(source, Orig_Identifier, player_licence)
 
                 elseif (responseText == "2") then
                     -- already claimed.  shouldn't get this because of the checks above but, just in case
@@ -108,9 +100,9 @@ end, false)
 
 -- Utility functions
 
-function claimedVote(playerId, Orig_Identifier, player_database_identifier)
-    if player_database_identifier then
-        Orig_Identifier = player_database_identifier
+function claimedVote(playerId, Orig_Identifier, player_licence)
+    if player_licence then
+        Orig_Identifier = player_licence
     end
     if (voteCache[Orig_Identifier]) then
         voteCache[Orig_Identifier] = voteCache[Orig_Identifier] + 1
@@ -129,7 +121,7 @@ function claimedVote(playerId, Orig_Identifier, player_database_identifier)
             local command = v
             command = string.gsub(command, "{playername}", playerName)
             command = string.gsub(command, "{playerid}", playerId)
-            command = string.gsub(command, "{xplayerid}", player_database_identifier)
+            command = string.gsub(command, "{playerlicence}", player_licence)
             command = string.gsub(command, "{votescount}", tostring(amountOfVotes))                     
             ExecuteCommand(command)
         end
@@ -140,7 +132,7 @@ function claimedVote(playerId, Orig_Identifier, player_database_identifier)
             local command = v
             command = string.gsub(command, "{playername}", playerName)
             command = string.gsub(command, "{playerid}", playerId)
-            command = string.gsub(command, "{xplayerid}", player_database_identifier)
+            command = string.gsub(command, "{playerlicence}", player_licence)
             command = string.gsub(command, "{votescount}", tostring(amountOfVotes))         
             ExecuteCommand(command)
         end
@@ -151,3 +143,38 @@ end
 function string.starts(String,Start)
    return string.sub(String,1,string.len(Start))==Start
 end
+
+-- Give money command
+RegisterCommand("qbgivemoney", function(src, args, raw)
+	local msg_err = "This command must be executed by the server console or RCON client"	
+	if src > 0 then
+		print(msg_err);
+		return false
+	elseif #args < 3 then
+		print("Usage: qbgivemoney [Player ID] [Type of money (cash, bank, crypto)] [amount]");
+		return false
+	end
+	local QBCore = exports['qb-core']:GetCoreObject()	
+	local Player = QBCore.Functions.GetPlayer(tonumber(args[1]))
+	if Player then
+		Player.Functions.AddMoney(tostring(args[2]), tonumber(args[3]))
+	else
+		print("Player is offline");
+	end	
+end, false)
+
+-- Announcement command
+RegisterCommand("announce", function(src, args, raw)
+    if src > 0 then
+        print("This command must be executed by the server console or RCON client\n");
+        return false
+    elseif #args < 2 then
+        print("Usage: t4s_announce [announce-title] [text]\n");
+        return false
+    end
+    local title = args[1]
+    args[1] = ""
+    local words = table.concat(args, " ")
+    TriggerClientEvent('chatMessage', -1, "\n"..title, {255, 0, 0}, words.." \n ")  
+    print("^5[t4s_announce] "..title..words.."^7\n");
+end, false)
