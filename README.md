@@ -42,7 +42,7 @@ Config.Rewards = {
     ["@"] = { -- @ = all votes
         "giveaccountmoney {playerid} bank 100", -- ESX framework command (ex_extended command)
         "qbgivemoney {playerid} bank 100", -- QBCore framework command
-        "announce [VOTE] {playername} has voted and won $100 ! Number of votes: {votescount}. Type /vote to vote" -- (native command)
+        "announce [VOTE] {playername} has voted and won $100 ! Number of votes: {votescount}. Type /vote to vote"
     },
     ["10"] = { -- When the player has 10 votes
         "announce [VOTE] {playername} has voted 10 times !"
