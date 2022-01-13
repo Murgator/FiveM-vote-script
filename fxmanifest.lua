@@ -3,7 +3,7 @@ games { 'gta5' }
 
 author 'Murgator'
 description 'Trackyserver vote script'
-version '1.1.2'
+version '1.1.4'
 
 files {
     "locales/american.json",
@@ -22,14 +22,7 @@ files {
 
 server_scripts {
     "config.lua",
-	'@async/async.lua',
-	'@mysql-async/lib/MySQL.lua',
     "server/server.lua"
-}
-
-dependencies {
-	'es_extended',
-	'async'
 }
 
 client_scripts {
