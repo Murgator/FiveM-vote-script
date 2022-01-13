@@ -12,7 +12,7 @@ Open an account on [Trackyserver.com](https://trackyserver.com/) and add a FiveM
 
 Download this script and extract it to your `/resources` folder on your FiveM server.
 
-To start the script, add this line at the end of your resources in server.cfg: `ensure FiveM-vote-script-master` (if that doesn't work add this instead: `start FiveM-vote-script-master`)
+To start the script, add this line at the end of your resources in server.cfg: `ensure FiveM-vote-script-master`
 
 Add this line in server.cfg to allow script to type commands in the console: `add_ace resource.FiveM-vote-script-master command allow`
 
