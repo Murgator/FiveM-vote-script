@@ -1,10 +1,10 @@
-## FiveM vote script for Trackyserver.com (ESX1 & 2)
+## FiveM vote script for Trackyserver.com
 
 A simple plugin to allow players to vote and claim rewards for their favourite servers.
 
-#### Prevents abusive votes (This point only works if you are using ESX2)
+#### Prevents abusive votes
 
-When a player requests their reward with /checkvote, their ESX ID is sent to Trackyserver.com. It is the database identifier (gta license) which is used to check if the player has already vote and received his reward.
+When a player requests their reward with /checkvote, their licence is sent to Trackyserver.com. It is the database identifier (gta license) which is used to check if the player has already vote and received his reward.
 	
 #### Installation
 
@@ -34,40 +34,36 @@ The `["@"]` array represents "all votes" and will always be triggered regardless
 
 If a command needs the player's live ID, you can put `{playerid}` in it's place.
 The same goes for the player's name with `{playername}`.
-Use `{xplayerid}` for the ESX database identifier
+Use `{playerlicence}` for the player GTA licence
 
 Below is the default configuration for the rewards table.
 ```lua
 Config.Rewards = {
     ["@"] = { -- @ = all votes
-        "t4s_addmoney {xplayerid} bank 100", -- add 100 to the player's bank account
-        "t4s_announce [VOTE] {playername} has voted and won $100 ! Number of votes: {votescount}"
+        "giveaccountmoney {playerid} bank 100", -- ESX framework command (ex_extended command)
+        "qbgivemoney {playerid} bank 100", -- QBCore framework command
+        "announce [VOTE] {playername} has voted and won $100 ! Number of votes: {votescount}. Type /vote to vote" -- (native command)
     },
     ["10"] = { -- When the player has 10 votes
-        "t4s_addmoney {xplayerid} bank 1000", -- add 1000 to the player's bank account
-        "t4s_announce [VOTE] {playername} has voted 10 times and won $1000 !"
+        "announce [VOTE] {playername} has voted 10 times !"
     },
     ["100"] = {
-        "t4s_announce [VOTE] {playername} has 100 votes !!!"
+        "announce [VOTE] {playername} has 100 votes !"
     }
 }
 ```
-
-#### Requirements
-
-Commands **must** be executable by the console. Otherwise, you will get errors.
-
-You can use `t4s_addmoney` and `t4s_announce` and other commands by using this script:
-
-[Custom commands for ESX](https://github.com/Murgator/esx-fivem-commands)
-
-[Custom commands for ESX 2](https://github.com/Murgator/esx2-fivem-commands)
 
 ### Chat commands
 
 `/vote` - To display the server's voting link.
 
 `/checkvote` - Type this command after voting for the server to receive your reward.
+
+### Console commands
+
+`qbgivemoney {playerid} [account_type(bank/crypto/cash)] [amount]` - Give money to a player for QBCore.
+
+`announce [prefix] [message]` - Announcement visible to all players in the chat.
 
 #### Original repository
 
