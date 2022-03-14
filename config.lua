@@ -2,7 +2,7 @@ Config = {}
 
 Config.trackyServerId = ""
 Config.trackyServerKey = ""
-Config.identifier = "discordid" -- discordid OR steamid
+Config.identifier = "steam" -- discord OR steam
 
 --[[
     Add rewards for the votes here.
