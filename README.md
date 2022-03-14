@@ -26,6 +26,8 @@ There's only tree server vars needed to set up this resource in `config.lua` fil
 
 `Config.identifier` - Must be **discordid** or **steamid**. The player will be recognized on the server with this identifier
 
+`Config.identifier` - If your players vote with Steam on Trackyserver.com set this variable on **steamid**. If your players vote with Discord set this variable to **discordid**
+
 #### Commands configuration
 
 In the `config.lua` file you will see a table called `Config.Rewards`.
