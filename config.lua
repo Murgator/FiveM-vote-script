@@ -2,7 +2,7 @@ Config = {}
 
 Config.trackyServerId = ""
 Config.trackyServerKey = ""
-Config.identifier = "steam" -- discord OR steam
+Config.identifier = "steam" -- If your players vote with Steam on Trackyserver.com leave this variable to the word **steam**. If your players vote with Discord set this variable to the word **discord**
 
 --[[
     Add rewards for the votes here.
