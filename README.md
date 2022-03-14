@@ -24,7 +24,7 @@ There's only tree server vars needed to set up this resource in `config.lua` fil
 
 `Config.trackyServerKey` - The key for the server on [TrackyServer](https://www.trackyserver.com/).
 
-`Config.identifier` - If your players vote with Steam on Trackyserver.com set this variable on **steamid**. If your players vote with Discord set this variable to **discordid**
+`Config.identifier` - If your players vote with Steam on Trackyserver.com leave this variable to **steam**. If your players vote with Discord set this variable to **discord**
 
 #### Commands configuration
 
