@@ -19,8 +19,8 @@ end
 if Config.trackyServerKey == "" then
     print("Please set Config.trackyServerKey to your server key from https://trackyserver.com in config.lua file")
 end
-if Config.identifier ~= "discordid" and Config.identifier ~= "steamid" then
-    print("Please set Config.identifier to steamid or discordid in config.lua file")
+if Config.identifier ~= "discord" and Config.identifier ~= "steam" then
+    print("Please set Config.identifier to word steam or discord in config.lua file")
 end
 
 --[[
@@ -36,12 +36,12 @@ RegisterCommand("checkvote", function(src, args, raw)
     local Orig_Identifier, player_local_identifier, player_licence
     -- Get player identifiers 
     for k,v in pairs(GetPlayerIdentifiers(source)) do   
-        if Config.identifier == "steamid" then
+        if Config.identifier == "steam" then
             if (string.starts(v, "steam:")) then
                 player_local_identifier = tonumber(string.sub(v, 7), 16)
                 Orig_Identifier = v
             end
-        elseif Config.identifier == "discordid" then
+        elseif Config.identifier == "discord" then
             if (string.starts(v, "discord:")) then
                 player_local_identifier = string.gsub(v, "discord:", "")
                 Orig_Identifier = player_local_identifier
