@@ -28,11 +28,11 @@ end
 ]]--
 RegisterCommand("vote", function(src, args, raw)
     -- Send them the URL to vote
-    TriggerClientEvent("serverVote:showSubtitle", src, "vote", string.format(endpoints["vote"], Config.trackyServerId), 10000)
+    TriggerClientEvent("serverVote:showSubtitle", tonumber(src), "vote", string.format(endpoints["vote"], Config.trackyServerId), 10000)
 end, false)
 
 RegisterCommand("checkvote", function(src, args, raw)
-    local source = src
+    local source = tonumber(src)
     local Orig_Identifier, player_local_identifier, player_licence
     -- Get player identifiers 
     for k,v in pairs(GetPlayerIdentifiers(source)) do   
