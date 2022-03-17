@@ -66,10 +66,10 @@ RegisterCommand("checkvote", function(src, args, raw)
             print("Error getting status: " .. statusCode .. " : " .. tostring(responseText))
             return
         end
-        if (responseText == "0") then
+        if string.find(responseText, "0") then
             -- Not yet voted
             TriggerClientEvent("serverVote:showSubtitle", source, "vote_not_found", string.format(endpoints["vote"], Config.trackyServerId))
-        elseif (responseText == "1") then
+        elseif string.find(responseText, "1") then
             -- Voted, not claimed
             -- Claim it
             PerformHttpRequest(string.format(endpoints["claim"], Config.trackyServerKey, player_local_identifier, player_licence), function(statusCode, responseText, _)
@@ -78,19 +78,19 @@ RegisterCommand("checkvote", function(src, args, raw)
                     return
                 end
 
-                if (responseText == "0") then
+                if string.find(responseText, "0") then
                     TriggerClientEvent("serverVote:showSubtitle", source, "vote_not_found", string.format(endpoints["vote"], Config.trackyServerId))
-                elseif (responseText == "1") then
+                elseif string.find(responseText, "1") then
                     -- Just claimed it... Yey time for a reward
                     claimedVote(source, Orig_Identifier, player_licence)
 
-                elseif (responseText == "2") then
+                elseif string.find(responseText, "2") then
                     -- already claimed.  shouldn't get this because of the checks above but, just in case
                     TriggerClientEvent("serverVote:showSubtitle", source, "vote_already_claimed")
                 end
             end, "GET", "", {})
 
-        elseif (responseText == "2") then
+        elseif string.find(responseText, "2") then
             -- Have voted, and claimed
             TriggerClientEvent("serverVote:showSubtitle", source, "vote_already_claimed")
         end
