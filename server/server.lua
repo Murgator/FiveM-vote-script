@@ -1,7 +1,7 @@
 local endpoints = {
     ["vote"] = "https://trackyserver.com/server/%d",
-    ["status"] = "https://api.trackyserver.com/vote/?action=status&key=%s&"..Config.identifier.."=%s&customid=%s",
-    ["claim"] = "https://api.trackyserver.com/vote/?action=claim&key=%s&"..Config.identifier.."=%s&customid=%s"
+    ["status"] = "https://api.trackyserver.com/vote/?action=status&key=%s&"..Config.identifier.."id=%s&customid=%s",
+    ["claim"] = "https://api.trackyserver.com/vote/?action=claim&key=%s&"..Config.identifier.."id=%s&customid=%s"
 }
 
 -- Load current player vote count from file
