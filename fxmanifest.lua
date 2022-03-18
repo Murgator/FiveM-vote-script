@@ -3,7 +3,7 @@ games { 'gta5' }
 
 author 'Murgator'
 description 'Trackyserver vote script'
-version '1.1.4'
+version '1.1.5'
 
 files {
     "locales/american.json",
