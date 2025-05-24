@@ -68,21 +68,18 @@ Config.Rewards = {
 ### ❓ FAQ
 
 1. The script doesn’t seem to work. What should I check?
-Make sure the script is properly loaded on your server. In your server.cfg, you should have:
-
-`ensure FiveM-vote-script-master`
-
+Make sure the script is properly loaded on your server. In your server.cfg, you should have: `ensure FiveM-vote-script-master`
 Then check your server console/logs to confirm the script is starting without errors.
 
-2. I type /checkvote but nothing happens?
+3. I type /checkvote but nothing happens?
 You should always receive a chat message when using /checkvote, even if you haven’t voted yet.
 If nothing appears, it likely means the script is not loaded. Go back to step 1 and confirm it’s properly started.
 
-3. How can I test if the vote command is working?
+4. How can I test if the vote command is working?
 In your config file, use this test command: announce [VOTE] {playername} vote test
 Then run /checkvote in-game to verify if the command reacts. If it doesn’t, double-check your configuration and script load.
 
-4. The script doesn’t recognize me. Why?
+5. The script doesn’t recognize me. Why?
 Make sure your Discord or Steam account is linked with your FiveM account.
 The script uses these identifiers to recognize players. If your account is not linked, it won’t detect your vote or trigger any related commands.
 
