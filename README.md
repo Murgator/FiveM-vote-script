@@ -76,7 +76,7 @@ You should always receive a chat message when using /checkvote, even if you have
 If nothing appears, it likely means the script is not loaded. Go back to step 1 and confirm it’s properly started.
 
 4. **How can I test if the vote command is working?**
-In your config file, use this test command: announce [VOTE] {playername} vote test
+In your config file, use this test command: `announce [VOTE] {playername} this is a test vote`
 Then run /checkvote in-game to verify if the command reacts. If it doesn’t, double-check your configuration and script load.
 
 5. **The script doesn’t recognize me. Why?**
