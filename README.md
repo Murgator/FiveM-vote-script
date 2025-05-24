@@ -59,7 +59,7 @@ Config.Rewards = {
 
 `/checkvote` - Type this command after voting for the server to receive your reward.
 
-### Console commands
+### Example console commands you can use
 
 `qbgivemoney {playerid} [account_type(bank/crypto/cash)] [amount]` - Give money to a player for QBCore.
 
